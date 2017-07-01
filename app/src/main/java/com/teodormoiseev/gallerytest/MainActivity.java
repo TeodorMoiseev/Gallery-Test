@@ -28,14 +28,13 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
 
         gridView = (GridView) findViewById(R.id.gridview);
+        gridView.setAdapter(new ImageAdapter(this));
         if (savedInstanceState != null) {
             ArrayList<Uri> uris = savedInstanceState.getParcelableArrayList("images");
             ImageAdapter adapter = (ImageAdapter) gridView.getAdapter();
             adapter.setImageUris(uris);
             adapter.notifyDataSetChanged();
             gridView.setAdapter(adapter);
-        } else {
-            gridView.setAdapter(new ImageAdapter(this));
         }
 
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
