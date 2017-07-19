@@ -6,6 +6,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+
 public class FullImageActivity extends Activity {
 
     @Override
@@ -17,6 +19,10 @@ public class FullImageActivity extends Activity {
 
         Uri uri = intent.getParcelableExtra("uri");
         ImageView imageView = (ImageView) findViewById(R.id.full_image_view);
-        imageView.setImageURI(uri);
+        Glide
+                .with(this)
+                .load(uri)
+                .into(imageView);
+
     }
 }
