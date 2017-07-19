@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="defaultSpacing">10dp</dimen>
-    <dimen name="columnWidth">90dp</dimen>
+    <dimen name="default_spacing">10dp</dimen>
+    <dimen name="column_width">90dp</dimen>
+    <dimen name="grid_item_height">120dp</dimen>
 </resources>

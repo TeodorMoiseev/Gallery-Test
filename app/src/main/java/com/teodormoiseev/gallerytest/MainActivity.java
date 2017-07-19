@@ -30,7 +30,7 @@ public class MainActivity extends Activity {
         gridView = (GridView) findViewById(R.id.gridview);
         gridView.setAdapter(new ImageAdapter(this));
         if (savedInstanceState != null) {
-            ArrayList<Uri> uris = savedInstanceState.getParcelableArrayList("images");
+            ArrayList<Uri> uris = savedInstanceState.getParcelableArrayList(getString(R.string.images));
             ImageAdapter adapter = (ImageAdapter) gridView.getAdapter();
             adapter.setImageUris(uris);
             adapter.notifyDataSetChanged();
@@ -45,7 +45,7 @@ public class MainActivity extends Activity {
                         FullImageActivity.class
                 );
                 ImageAdapter adapter = ((ImageAdapter) gridView.getAdapter());
-                i.putExtra("uri", adapter.getUriByIndex(position));
+                i.putExtra(getString(R.string.uri), adapter.getUriByIndex(position));
                 startActivity(i);
             }
         });
@@ -96,12 +96,12 @@ public class MainActivity extends Activity {
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         ArrayList<Uri> uris = ((ImageAdapter) gridView.getAdapter()).getImageUris();
-        outState.putParcelableArrayList("images", uris);
+        outState.putParcelableArrayList(getString(R.string.images), uris);
     }
 
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        ArrayList<Uri> uris = savedInstanceState.getParcelableArrayList("images");
+        ArrayList<Uri> uris = savedInstanceState.getParcelableArrayList(getString(R.string.images));
         ImageAdapter adapter = (ImageAdapter) gridView.getAdapter();
         adapter.setImageUris(uris);
         adapter.notifyDataSetChanged();

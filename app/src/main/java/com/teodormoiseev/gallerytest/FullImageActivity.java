@@ -17,7 +17,7 @@ public class FullImageActivity extends Activity {
 
         Intent intent = getIntent();
 
-        Uri uri = intent.getParcelableExtra("uri");
+        Uri uri = intent.getParcelableExtra(getString(R.string.uri));
         ImageView imageView = (ImageView) findViewById(R.id.full_image_view);
         Glide
                 .with(this)
